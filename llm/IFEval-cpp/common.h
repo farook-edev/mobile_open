@@ -162,7 +162,8 @@ inline std::string remove_font_modifiers(const std::string& s) {
 
     // skip emphasis/strong/strike/escape chars as long as they're not preceeded
     // by an escape character
-    if ((c == '*' || c == '_' || c == '~' || c == '\\') && s[i - 1] != '\\')
+    if ((c == '*' || c == '_' || c == '~' || c == '\\') &&
+        (i == 0 || s[i - 1] != '\\'))
       continue;
 
     // remove heading markers (#) at line starts

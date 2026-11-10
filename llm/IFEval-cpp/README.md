@@ -9,6 +9,7 @@ This tool is a bit more manual than the python implementation released by google
 ### Tools
 Because of the differences above, the input data from the python implementation will need to be processed, and so will the output. The following are the tools that will be used for that:
 - `merger.py`: used to merge the 2 input files (`input_data.jsonl` and `input_response_data_gpt4_20231107_145030.jsonl`).
+- `remove_special_tokens.py`: removes the model's special tokens from the responses in a response `jsonl` file before evaluation, using the tokenizer's own list of special tokens (`--tokenizer` takes a Hugging Face model id or path, requires `transformers`). Applies to both the python and C++ evaluation.
 - `jsoner.py`: used to convert `merged.jsonl` to `merged.json` for use with the C++ tool
 - `33merger.py`: used to add missing field to the `IFEval33` result files. (uses an existing merged `jsonl` file)
 - `process-cpp.py`: used to convert the merged output from the C++ code into 2 separate `loose` and `strict` files that are in compatible format with the python code.
